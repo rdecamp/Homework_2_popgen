@@ -1,0 +1,299 @@
+---
+title: "Homework 2: Analyzing genetic variance in the UCP1 gene of vervet monkeys using PCA and DAPC"
+author: "Becca DeCamp, Christian Gagnon, Mel Zarate"
+date: "3/8/2019"
+output: html_document
+---
+
+R version: 3.5.2 "Egshell Igloo"
+<br>
+vcfR version: 1.8.0
+<br>
+adegenent version: 2.1.1
+<br>
+ggplot2 version: 3.1.0
+<br>
+
+## Introduction: UCP1 and PCA/DAPC.
+<br>
+
+For these analyses, we decided to focus on just the UCP1 gene from our vervet genomic data (courtesy of the International Vervet Research Consortium), because it is a point of research interest in our lab. UCP1 is one among a family of genes responsible for the production of uncoupling proteins, and assists in non-shivering thermogenesis (NST). UCP1 mediated thermogenesis is one of the critical adaptive physiological mechanisms which led to the evolution and radiation of homeothermic ancestral eutherian mammals. Vervet monkeys are amongst the most widely distributed nonhuman primates and have high phenotypic diversity. Our sample of <i>Chlorocebus</i> covers a wide longitudinal range with dramatically different climatic conditions.
+
+<br>
+
+For our analysis, we used Principal Component Analysis (PCA) and Discriminant Analysis of Principal Coordinates (DAPC). While both methods of analysis are similar in that they reduce datasets in to a couple of principal components that describe the dataset, PCA only is concerned with the overall differences in the dataset while DAPC focuses specifically on the differences between groups. 
+<br>
+
+## Analysis
+<br>
+
+We will analyze our data in four different ways using PCA and DAPC. First, we will use these methods to look at VCF data of the whole UCP1 gene from samples of all vervet species and group them by taxa. Second, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>pygerythrus</i> species and group them by region. Third, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>pygerythrus</i> species and group them by minimum temperature. Finally, we will use these methods to look at VCF data of only the SNPs out of HWE in UCP1 in the <i>pygerythrus</i> species and group them by region. 
+<br>
+The research questions we asked in this analysis are: 
+* Is there genetic differences between the UCP1 gene in different species of vervet monkey? 
+* Are there regional differences between the UCP1 gene in the pygerythrus species of vervet monkey?
+* Is there a genetic difference between vervet populations that live in lower temperatures versus higher temperatures?
+
+<br>
+Here are the packages we need for our analyses. 
+```{r}
+library(vcfR)
+library(adegenet)
+library(ggplot2)
+```
+
+### General PCA of UCP1 in all vervet species
+<br>
+
+This analysis is looking at UCP1 population structure in all species of vervet, and is grouped by taxon. We did this as our initial analysis because we wanted to get a sense of the genetic variation within the UCP1 region in vervets. 
+<br>
+Here's how to make the objects we need. We need both genlight (for PCA) and genind (for DAPC) objects, which we make using functions from the vcfR package. We also need to assign population variables to the files which is where the vervet.population.panel comes in. This is a tab-deliminated text file which we read in as a table. 
+
+```{r}
+#vervet VCF for UCP1 (Christian misspelled this file, it is UCP not UPC)
+vervet <- read.vcfR("ALL_UPC1.vcf", verbose = TRUE)
+
+#creating genind
+vervet_genind <- vcfR2genind(vervet, sep = "[|/]")
+
+#population data read in 
+pop.data <- read.table("vervet.population.panel", sep = "\t", header = TRUE)
+
+#Checking that all the samples in the VCF and the population data frame are included. Should be TRUE. 
+
+all(colnames(vervet@gt)[-1] == pop.data$AccessID)
+
+#assigning pop data to genind
+
+pop(vervet_genind) <- pop.data$taxon
+
+
+#genlight object for PCA
+
+vervet_genlight <- vcfR2genlight(vervet)
+
+#assigning pop data to genlight 
+pop(vervet_genlight) <- pop.data$taxon
+```
+
+This chunk does a PCA with the genlight object. We used nf=2 becuase our eigenvalues indicate this is the best number of PCs to keep. Our graph of eigenvalues will illustrate our decision. 
+
+```{r}
+pca <- glPca(vervet_genlight, nf = 2)
+#Here's a graph of the eigenvalues (or, the principle components). This graph shows how much of the variation of the original dataset is kept with the PCA. This graph was used to determine the number of PCs to keep
+
+barplot(100*pca$eig/sum(pca$eig), col = heat.colors(50), main="PCA Eigenvalues")
+title(ylab="Percent of variance\nexplained", line = 2)
+title(xlab="Eigenvalues", line = 1)
+
+#Now, we can graph the results with ggplot!
+
+#Creating a dataframe with pca scores, and assigning population data
+pca.scores <- as.data.frame(pca$scores)
+pca.scores$pop <- pop(vervet_genlight)
+
+#ggplot
+
+p <- ggplot(pca.scores, aes(x=PC1, y=PC2, colour=pop)) + geom_point(size=2) + stat_ellipse(level = 0.95, size = 1) + geom_hline(yintercept = 0) + geom_vline(xintercept = 0) + theme_bw() 
+p
+
+#Ignore the warning error. We see here that there are some outliers in our data. Will the DAPC show the same thing?
+```
+
+DAPC analysis using genind object
+
+```{r}
+#Like the PCA, the first two PCs best explain the data. Therefore, we retain only these PCs. 
+dapc <- dapc(vervet_genind, n.pca = 2, n.da = 2)
+
+#Plotting 
+scatter(dapc, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scree.pca = TRUE,
+        posi.pca = "topleft", cleg = 0.75)
+
+#We see the same two taxa as outliers in our DAPC.  
+```
+We see that the DAPC and PCA are similar; Most of the species of vervet cluster together, but there are a few genetically outlying species like <i>sabaeus</i> and <i>aethiops</i>. 
+<br>
+
+### PCA and DAPC using just the <i>pygerythrus</i> species UCP1, clustering by region. 
+<br>
+
+As said in the introduction, we are interested in looking at UCP1 structure in <i>pygerythrus</i> because this species is our primary species of study in our research. Here we will use PCA and DAPC to look at genetic variation in just <i>pygerythrus</i>, and group them by the region their study sites are in. 
+<br>
+```{r}
+#pygerythrus VCF for UCP1; we isolated this population using our Linux pipeline.  
+pyg <- read.vcfR("pyg_UCP1.vcf.gz", verbose = TRUE)
+
+#genind object
+pyg_genind <- vcfR2genind(pyg, sep = "[|/]")
+
+#population data (we modified our population dataset, which is why we need to read it in again)
+pyg.data <- read.table("pygerythrus.population.panel", sep = "\t", header = TRUE)
+
+#Checking that all the samples in the VCF and the population data frame are included
+
+all(colnames(pyg@gt)[-1] == pyg.data$AccessID)
+
+#assigning pop data to genind
+
+pop(pyg_genind) <- pyg.data$region
+
+
+#genlight object for PCA
+
+pyg_genlight <- vcfR2genlight(pyg)
+
+#assigning pop data to genlight 
+pop(pyg_genlight) <- pyg.data$region
+```
+This chunk does a PCA with the genlight object. We used nf=2 becuase our eigenvalues indicate that only one PC is adequate to explain our data, but we kept 2 to err on the conservative side. Our graph of eigenvalues will illustrate our decision. 
+
+```{r}
+pca1 <- glPca(pyg_genlight, nf = 2)
+#Here's a graph of the eigenvalues (or, the principle components). This graph shows how much of the variation of the original dataset is kept with the PCA. 
+
+barplot(100*pca1$eig/sum(pca1$eig), col = heat.colors(50), main="PCA Eigenvalues")
+title(ylab="Percent of variance\nexplained", line = 2)
+title(xlab="Eigenvalues", line = 1)
+
+#Now, we can graph the results with ggplot!
+
+#Creating a dataframe with pca scores
+pca.scores1 <- as.data.frame(pca1$scores)
+pca.scores1$pop <- pop(pyg_genlight)
+
+#ggplot
+
+p <- ggplot(pca.scores1, aes(x=PC1, y=PC2, colour=pop)) + geom_point(size=2) + stat_ellipse(level = 0.95, size = 1) + geom_hline(yintercept = 0) + geom_vline(xintercept = 0) + theme_bw()
+p
+
+#There is not complete overlap, but there is significant overlap between the population that reside in these regions. 
+```
+DAPC analysis for these data, again clustered by region.
+
+```{r}
+#Like the PCA, the first two PCs best explain the data. Therefore, we retain only these PCs. 
+dapc1 <- dapc(pyg_genind, n.pca = 2, n.da = 2)
+
+#Plotting 
+scatter(dapc1, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scree.pca = TRUE,
+        posi.pca = "topleft", cleg = 0.75)
+
+#DAPC illustrates the same clustering pattern as PCA. 
+```
+
+### PCA and DAPC using just the <i>pygerythrus</i> species UCP1, clustering by minimum temperature at the study site. 
+<br>
+
+Next, we were interested in looking at how the <i>pygerythrus</i> data would cluster when grouped by minimum temperature at the study site. We were interested in this because UCP1 responds to cooler temperatures. 
+
+```{r}
+#We already have the VCF file we need loaded and made in to the file types we need, all we need to do is change the population data category. 
+pop(pyg_genind) <- pyg.data$min_temp
+
+pop(pyg_genlight) <- pyg.data$min_temp
+```
+
+PCA for this analysis. We used nf=2 becuase our eigenvalues indicate that only one PC is adequate to explain our data, but we kept 2 to err on the conservative side. Our graph of eigenvalues will illustrate our decision. 
+
+```{r}
+pca2 <- glPca(pyg_genlight, nf = 2)
+#Here's a graph of the eigenvalues (or, the principle components). This graph shows how much of the variation of the original dataset is kept with the PCA. 
+
+barplot(100*pca2$eig/sum(pca2$eig), col = heat.colors(50), main="PCA Eigenvalues")
+title(ylab="Percent of variance\nexplained", line = 2)
+title(xlab="Eigenvalues", line = 1)
+
+#Now, we can graph the results with ggplot!
+
+#Creating a dataframe with pca scores
+pca.scores2 <- as.data.frame(pca2$scores)
+pca.scores2$pop <- pop(pyg_genlight)
+
+#ggplot
+
+p <- ggplot(pca.scores2, aes(x=PC1, y=PC2, colour=pop)) + geom_point(size=2) + stat_ellipse(level = 0.95, size = 1) + geom_hline(yintercept = 0) + geom_vline(xintercept = 0) + theme_bw()
+p
+
+#There is not complete overlap, but there is significant overlap between the populations that reside in regions with different minimum temperatures. 
+```
+
+DAPC for this analysis. 
+
+```{r}
+#Like the PCA, the first two PCs best explain the data. Therefore, we retain only these PCs. 
+dapc2 <- dapc(pyg_genind, n.pca = 2, n.da = 2)
+
+#Plotting 
+scatter(dapc2, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scree.pca = TRUE,
+        posi.pca = "topleft", cleg = 0.75)
+
+#DAPC illustrates the same clustering pattern as PCA. 
+```
+
+
+### PCA and DAPC using just the <i>pygerythrus</i> species UCP1 with only SNPs out of HWE, clustering by region.
+<br>
+
+For our final analysis, we wanted to compare the population structure of SNPs that were out of HWE with the population structure of all SNPs in UCP1, which we do by clustering by region. We trimmed our SNP file 
+
+```{r}
+#vervet VCF for UCP1
+pygHWE <- read.vcfR("pyg_UPC1_HWE.vcf.gz", verbose = TRUE)
+
+pygHWE_genind <- vcfR2genind(pygHWE, sep = "[|/]")
+
+#Already have population data, don't need to load in again. 
+
+#Checking that all the samples in the VCF and the population data frame are included. This should be TRUE. 
+
+all(colnames(pygHWE@gt)[-1] == pyg.data$AccessID)
+
+#assigning pop data to genind
+
+pop(pygHWE_genind) <- pyg.data$region
+
+
+#genlight object for PCA
+
+pygHWE_genlight <- vcfR2genlight(pygHWE)
+
+#assigning pop data to genlight 
+pop(pygHWE_genlight) <- pyg.data$region
+```
+
+Here is our PCA. We used nf=2 becuase our eigenvalues indicate that only one PC is adequate to explain our data, but we kept 2 to err on the conservative side. Our graph of eigenvalues will illustrate our decision. 
+
+```{r}
+pca2 <- glPca(pygHWE_genlight, nf = 2)
+#Here's a graph of the eigenvalues (or, the principle components). This graph shows how much of the variation of the original dataset is kept with the PCA. 
+
+barplot(100*pca2$eig/sum(pca2$eig), col = heat.colors(50), main="PCA Eigenvalues")
+title(ylab="Percent of variance\nexplained", line = 2)
+title(xlab="Eigenvalues", line = 1)
+
+#Now, we can graph the results with ggplot!
+
+#Creating a dataframe with pca scores
+pca.scores2 <- as.data.frame(pca2$scores)
+pca.scores2$pop <- pop(pygHWE_genlight)
+
+#ggplot
+
+p <- ggplot(pca.scores2, aes(x=PC1, y=PC2, colour=pop)) + geom_point(size=2) + stat_ellipse(level = 0.95, size = 1) + geom_hline(yintercept = 0) + geom_vline(xintercept = 0) + theme_bw()
+p
+
+```
+
+Here is our DAPC. 
+
+```{r}
+#Like the PCA, the first two PCs best explain the data. Therefore, we retain only these PCs. 
+dapc2 <- dapc(pygHWE_genind, n.pca = 2, n.da = 2)
+
+#Plotting 
+scatter(dapc2, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scree.pca = TRUE,
+        posi.pca = "topleft", cleg = 0.75)
+```
+
+## Conclusions
