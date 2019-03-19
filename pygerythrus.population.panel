@@ -1,0 +1,52 @@
+sample	pop	region	country	taxon	min_temp
+VBOA1003	Kasane	Kasane	Botswana	pygerythrus	16
+VBOA1005	Kasane	Kasane	Botswana	pygerythrus	16
+VSAA2010	Soetdoring	Free State	South Africa	pygerythrus	0
+VSAA2015	Soetdoring	Free State	South Africa	pygerythrus	0
+VSAA2020	Soetdoring	Free State	South Africa	pygerythrus	0
+VSAB1003	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2009	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2010	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2011	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2012	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2017	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB2023	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB3001	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB3004	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB5004	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAB5005	Gariep	Free State	South Africa	pygerythrus	1.6
+VSAC1004	Sandveld	Free State	South Africa	pygerythrus	-0.2
+VSAC1012	Sandveld	Free State	South Africa	pygerythrus	-0.2
+VSAC1014	Sandveld	Free State	South Africa	pygerythrus	-0.2
+VSAC1015	Sandveld	Free State	South Africa	pygerythrus	-0.2
+VSAC1016	Sandveld	Free State	South Africa	pygerythrus	-0.2
+VSAD1003	Parys	Free State	South Africa	pygerythrus	0.2
+VSAE2005	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAE2009	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAE2011	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAE3001	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAE3002	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAE3003	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus	11.1
+VSAF1004	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus	12
+VSAF1009	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus	12
+VSAF1011	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus	12
+VSAF1012	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus	12
+VSAF1015	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus	12
+VSAG2001	Kwela	KwaZulu-Natal	South Africa	pygerythrus	4
+VSAG2003	Kwela	KwaZulu-Natal	South Africa	pygerythrus	4
+VSAG2005	Kwela	KwaZulu-Natal	South Africa	pygerythrus	4
+VSAH1001	Anerley	KwaZulu-Natal	South Africa	pygerythrus	12.1
+VSAI3005	Letsitele	Limpopo	South Africa	pygerythrus	11
+VSAJ2008	Letsitele	Limpopo	South Africa	pygerythrus	11
+VSAK3004	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAL1001	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAL2002	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAL3005	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAL4002	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAL5001	Shamwari	Eastern Cape	South Africa	pygerythrus	5
+VSAM0021	Amakhala	Eastern Cape	South Africa	pygerythrus	5
+VSAM1003	Amakhala	Eastern Cape	South Africa	pygerythrus	5
+VSAM2001	Amakhala	Eastern Cape	South Africa	pygerythrus	5
+VSAM3001	Amakhala	Eastern Cape	South Africa	pygerythrus	5
+VSAM4001	Amakhala	Eastern Cape	South Africa	pygerythrus	5
+VSAM5007	Addo	Eastern Cape	South Africa	pygerythrus	5

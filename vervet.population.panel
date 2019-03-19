@@ -1,0 +1,164 @@
+sample	pop	region	country	taxon
+A8518	Hackleton	Barbados	Caribbean	sabaeus
+AG23	Unknown	Unknown	Tanzania	hilgerti
+AG5417	Unknown	Unknown	Tanzania	hilgerti
+AGM126	Bangui	Bangui	Central African Republic	tantalus
+AGM127	Bangui	Bangui	Central African Republic	tantalus
+AGM129	Bangui	Bangui	Central African Republic	tantalus
+AGM130	Bangui	Bangui	Central African Republic	tantalus
+AGM131	Bangui	Bangui	Central African Republic	tantalus
+AGM136	Bangui	Bangui	Central African Republic	tantalus
+AGM137	Bangui	Bangui	Central African Republic	tantalus
+AGM141	Bangui	Bangui	Central African Republic	tantalus
+AGM142	Bangui	Bangui	Central African Republic	tantalus
+AGM143	Bangui	Bangui	Central African Republic	tantalus
+AGM144	Bangui	Bangui	Central African Republic	tantalus
+B5616	Russia Gulley	Barbados	Caribbean	sabaeus
+C2166	Cane Garden	Barbados	Caribbean	sabaeus
+C2265	Horse Hill	Barbados	Caribbean	sabaeus
+C2439	Turners Hall	Barbados	Caribbean	sabaeus
+V952	Cunningham	St.Kitts	Caribbean	sabaeus
+VBOA1003	Kasane	Kasane	Botswana	pygerythrus
+VBOA1005	Kasane	Kasane	Botswana	pygerythrus
+VEA1001	Awash	Awash	Ethiopia	aethiops
+VEA1002	Awash	Awash	Ethiopia	aethiops
+VEA1003	Awash	Awash	Ethiopia	aethiops
+VEA1004	Awash	Awash	Ethiopia	aethiops
+VEA1005	Awash	Awash	Ethiopia	aethiops
+VEA1007	Awash	Awash	Ethiopia	aethiops
+VEA1008	Awash	Awash	Ethiopia	aethiops
+VEB1009	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1010	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1011	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1012	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1013	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1014	Awaasa	Awaasa	Ethiopia	aethiops
+VEB1015	Awaasa	Awaasa	Ethiopia	aethiops
+VEC1016	Lake Tana	Lake Tana	Ethiopia	aethiops
+VEC1017	Lake Tana	Lake Tana	Ethiopia	aethiops
+VGA00002	Abuko	Downriver	Gambia	sabaeus
+VGA00006	Abuko	Downriver	Gambia	sabaeus
+VGA00010	Abuko	Downriver	Gambia	sabaeus
+VGA00019	Abuko	Downriver	Gambia	sabaeus
+VGA00021	Abuko	Downriver	Gambia	sabaeus
+VGA00025	Bijilo	Downriver	Gambia	sabaeus
+VGA00085	Bijilo	Downriver	Gambia	sabaeus
+VGA00090	Kairaba	Downriver	Gambia	sabaeus
+VGA00092	Bijilo	Downriver	Gambia	sabaeus
+VGA00098	Abuko	Downriver	Gambia	sabaeus
+VGA00100	Abuko	Downriver	Gambia	sabaeus
+VGA00101	Kairaba	Downriver	Gambia	sabaeus
+VGA00107	Abuko	Downriver	Gambia	sabaeus
+VGA00114	Janjanbureh	Upriver	Gambia	sabaeus
+VGA00138	Mango Tree	Upriver	Gambia	sabaeus
+VGA00142	Mango Tree	Upriver	Gambia	sabaeus
+VGA00146	Janjanbureh	Upriver	Gambia	sabaeus
+VGA00151	Yorobeli Kunda	Upriver	Gambia	sabaeus
+VGA00152	Yorobeli Kunda	Upriver	Gambia	sabaeus
+VGA00153	Yorobeli Kunda	Upriver	Gambia	sabaeus
+VGA00155	Baboon Island	Upriver	Gambia	sabaeus
+VGA00156	Baboon Island	Upriver	Gambia	sabaeus
+VGHA1001	Damango	Ghana	Ghana	sabaeus
+VGHB1002	Larabanga	Ghana	Ghana	sabaeus
+VKA3	Samburu	Lowland	Kenya	hilgerti
+VKB7	Mosiro	Lowland	Kenya	hilgerti
+VKC6	Naivasha	Highland	Kenya	hilgerti
+VKD7	Kimana	Highland	Kenya	hilgerti
+VSAA2010	Soetdoring	Free State	South Africa	pygerythrus
+VSAA2015	Soetdoring	Free State	South Africa	pygerythrus
+VSAA2020	Soetdoring	Free State	South Africa	pygerythrus
+VSAB1003	Gariep	Free State	South Africa	pygerythrus
+VSAB2009	Gariep	Free State	South Africa	pygerythrus
+VSAB2010	Gariep	Free State	South Africa	pygerythrus
+VSAB2011	Gariep	Free State	South Africa	pygerythrus
+VSAB2012	Gariep	Free State	South Africa	pygerythrus
+VSAB2017	Gariep	Free State	South Africa	pygerythrus
+VSAB2023	Gariep	Free State	South Africa	pygerythrus
+VSAB3001	Gariep	Free State	South Africa	pygerythrus
+VSAB3004	Gariep	Free State	South Africa	pygerythrus
+VSAB5004	Gariep	Free State	South Africa	pygerythrus
+VSAB5005	Gariep	Free State	South Africa	pygerythrus
+VSAC1004	Sandveld	Free State	South Africa	pygerythrus
+VSAC1012	Sandveld	Free State	South Africa	pygerythrus
+VSAC1014	Sandveld	Free State	South Africa	pygerythrus
+VSAC1015	Sandveld	Free State	South Africa	pygerythrus
+VSAC1016	Sandveld	Free State	South Africa	pygerythrus
+VSAD1003	Parys	Free State	South Africa	pygerythrus
+VSAE2005	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAE2009	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAE2011	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAE3001	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAE3002	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAE3003	Zinkwazi	KwaZulu-Natal	South Africa	pygerythrus
+VSAF1004	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus
+VSAF1009	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus
+VSAF1011	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus
+VSAF1012	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus
+VSAF1015	Blythedale Beach	KwaZulu-Natal	South Africa	pygerythrus
+VSAG2001	Kwela	KwaZulu-Natal	South Africa	pygerythrus
+VSAG2003	Kwela	KwaZulu-Natal	South Africa	pygerythrus
+VSAG2005	Kwela	KwaZulu-Natal	South Africa	pygerythrus
+VSAH1001	Anerley	KwaZulu-Natal	South Africa	pygerythrus
+VSAI3005	Letsitele	Limpopo	South Africa	pygerythrus
+VSAJ2008	Letsitele	Limpopo	South Africa	pygerythrus
+VSAK3004	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAL1001	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAL2002	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAL3005	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAL4002	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAL5001	Shamwari	Eastern Cape	South Africa	pygerythrus
+VSAM0021	Amakhala	Eastern Cape	South Africa	pygerythrus
+VSAM1003	Amakhala	Eastern Cape	South Africa	pygerythrus
+VSAM2001	Amakhala	Eastern Cape	South Africa	pygerythrus
+VSAM3001	Amakhala	Eastern Cape	South Africa	pygerythrus
+VSAM4001	Amakhala	Eastern Cape	South Africa	pygerythrus
+VSAM5007	Addo	Eastern Cape	South Africa	pygerythrus
+VWP00201	Parsons	St.Kitts	Caribbean	sabaeus
+VWP00268	Dieppe	St.Kitts	Caribbean	sabaeus
+VWP00301	Frigate Bay	St.Kitts	Caribbean	sabaeus
+VWP00312	SE Peninsula	St.Kitts	Caribbean	sabaeus
+VWP00384	Dale	St.Kitts	Caribbean	sabaeus
+VWP00389	Spooners	St.Kitts	Caribbean	sabaeus
+VWP00390	Shadwell Mountain	St.Kitts	Caribbean	sabaeus
+VWP00393	Bird Rock	St.Kitts	Caribbean	sabaeus
+VWP00410	West Farm	St.Kitts	Caribbean	sabaeus
+VWP00414	Beaufort	St.Kitts	Caribbean	sabaeus
+VWP00437	Citrus	St.Kitts	Caribbean	sabaeus
+VWP00456	Frankland	St.Kitts	Caribbean	sabaeus
+VWP00494	Brighton	St.Kitts	Caribbean	sabaeus
+VWP00542	Tabernacle	St.Kitts	Caribbean	sabaeus
+VWP10008	Felton Hill	Nevis	Caribbean	sabaeus
+VWP10010	Harley Valley	Nevis	Caribbean	sabaeus
+VWP10020	New River	Nevis	Caribbean	sabaeus
+VWP10026	New River	Nevis	Caribbean	sabaeus
+VWP10045	Taylors Pasture	Nevis	Caribbean	sabaeus
+VWP10053	Bulters Hill	Nevis	Caribbean	sabaeus
+VWP10064	Beach Road	Nevis	Caribbean	sabaeus
+VWP10067	Felton Hill	Nevis	Caribbean	sabaeus
+VWP10070	Cocoa Ghant	Nevis	Caribbean	sabaeus
+VWP10076	Prospect	Nevis	Caribbean	sabaeus
+VWP10077	Prospect	Nevis	Caribbean	sabaeus
+VWP10084	Pond Hill	Nevis	Caribbean	sabaeus
+VZA1001	Gate	Kafue	Zambia	cynosuros
+VZA1002	Gate	Kafue	Zambia	cynosuros
+VZA1003	Gate	Kafue	Zambia	cynosuros
+VZA1004	Gate	Kafue	Zambia	cynosuros
+VZA2005	Gate	Kafue	Zambia	cynosuros
+VZA2006	Gate	Kafue	Zambia	cynosuros
+VZA3008	Mukambi	Kafue	Zambia	cynosuros
+VZA3009	Mukambi	Kafue	Zambia	cynosuros
+VZA3010	Mukambi	Kafue	Zambia	cynosuros
+VZA4012	Lilayi	Lusaka	Zambia	cynosuros
+VZA4013	Lilayi	Lusaka	Zambia	cynosuros
+VZC1014	Livingstone	Livingston	Zambia	cynosuros
+VZC1015	Livingstone	Livingston	Zambia	cynosuros
+VZC1017	Livingstone	Livingston	Zambia	cynosuros
+VZC1018	Livingstone	Livingston	Zambia	cynosuros
+VZC1020	Livingstone	Livingston	Zambia	cynosuros
+W566	Dieppe Bay	St.Kitts	Caribbean	sabaeus
+X186	Mansion	St.Kitts	Caribbean	sabaeus
+X336	New Guinea	St.Kitts	Caribbean	sabaeus
+X598	Bayfords	St.Kitts	Caribbean	sabaeus
+Y010	Molyneaux	St.Kitts	Caribbean	sabaeus
+Y083	Halfway Tree	St.Kitts	Caribbean	sabaeus
+Y173	Buckleys	St.Kitts	Caribbean	sabaeus
