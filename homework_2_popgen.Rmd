@@ -21,18 +21,17 @@ For these analyses, we decided to focus on just the UCP1 gene from our vervet ge
 
 <br>
 
-For our analysis, we used Principal Component Analysis (PCA) and Discriminant Analysis of Principal Coordinates (DAPC). While both methods of analysis are similar in that they reduce datasets in to a couple of principal components that describe the dataset, PCA only is concerned with the overall differences in the dataset while DAPC focuses specifically on the differences between groups. 
+For our analysis, we used Principal Component Analysis (PCA) and Discriminant Analysis of Principal Coordinates (DAPC). We discuss the differences we found between these two analyses in our conclusion. 
 <br>
 
 ## Analysis
 <br>
 
-We will analyze our data in four different ways using PCA and DAPC. First, we will use these methods to look at VCF data of the whole UCP1 gene from samples of all vervet species and group them by taxa. Second, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>pygerythrus</i> species and group them by region. Third, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>pygerythrus</i> species and group them by minimum temperature. Finally, we will use these methods to look at VCF data of only the SNPs out of HWE in UCP1 in the <i>pygerythrus</i> species and group them by region. 
+We will analyze our data in four different ways using PCA and DAPC. First, we will use these methods to look at VCF data of the whole UCP1 gene from samples of all vervet species and group them by taxa. Second, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>Chlorocebus pygerythrus</i> species and group them by region. Third, we will use these methods to look at VCF data of the whole UCP1 gene in the <i>Chlorocebus pygerythrus</i> species and group them by minimum temperature. Finally, we will use these methods to look at VCF data of only the SNPs out of HWE in UCP1 in the <i>Chlorocebus pygerythrus</i> species and group them by region. 
 <br>
 The research questions we asked in this analysis are: 
 * Is there genetic differences between the UCP1 gene in different species of vervet monkey? 
 * Are there regional differences between the UCP1 gene in the pygerythrus species of vervet monkey?
-* Is there a genetic difference between vervet populations that live in lower temperatures versus higher temperatures?
 
 <br>
 Here are the packages we need for our analyses. 
@@ -48,6 +47,9 @@ library(ggplot2)
 This analysis is looking at UCP1 population structure in all species of vervet, and is grouped by taxon. We did this as our initial analysis because we wanted to get a sense of the genetic variation within the UCP1 region in vervets. 
 <br>
 Here's how to make the objects we need. We need both genlight (for PCA) and genind (for DAPC) objects, which we make using functions from the vcfR package. We also need to assign population variables to the files which is where the vervet.population.panel comes in. This is a tab-deliminated text file which we read in as a table. 
+<br>
+
+Our Eigenvalue plot for the analysis which included all 6 species of vervet monkeys showed that 2 PCs explained 65 percent of the genetic difference in the whole UCP1 gene.
 
 ```{r}
 #vervet VCF for UCP1 (Christian misspelled this file, it is UCP not UPC)
@@ -115,10 +117,12 @@ scatter(dapc, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scree
 We see that the DAPC and PCA are similar; Most of the species of vervet cluster together, but there are a few genetically outlying species like <i>sabaeus</i> and <i>aethiops</i>. 
 <br>
 
-### PCA and DAPC using just the <i>pygerythrus</i> species UCP1, clustering by region. 
+### PCA and DAPC using just the <i>Chlorocebus pygerythrus</i> species UCP1, clustering by region. 
 <br>
 
-As said in the introduction, we are interested in looking at UCP1 structure in <i>pygerythrus</i> because this species is our primary species of study in our research. Here we will use PCA and DAPC to look at genetic variation in just <i>pygerythrus</i>, and group them by the region their study sites are in. 
+As said in the introduction, we are interested in looking at UCP1 structure in <i>Chlorocebus pygerythrus</i> because this species is our primary species of study in our research. Here we will use PCA and DAPC to look at genetic variation in just <i>pygerythrus</i>, and group them by the region their study sites are in. 
+<br>
+In this Pygerythrus only PCA which, included limited climate data, 2 PCs explained approximately 65 percent of the diffrences as well.
 <br>
 ```{r}
 #pygerythrus VCF for UCP1; we isolated this population using our Linux pipeline.  
@@ -182,10 +186,10 @@ scatter(dapc1, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scre
 #DAPC illustrates the same clustering pattern as PCA. 
 ```
 
-### PCA and DAPC using just the <i>pygerythrus</i> species UCP1, clustering by minimum temperature at the study site. 
+### PCA and DAPC using just the <i>Chlorocebus pygerythrus</i> species UCP1, clustering by minimum temperature at the study site. 
 <br>
 
-Next, we were interested in looking at how the <i>pygerythrus</i> data would cluster when grouped by minimum temperature at the study site. We were interested in this because UCP1 responds to cooler temperatures. 
+Next, we were interested in looking at how the <i>Chlorocebus pygerythrus</i> data would cluster when grouped by minimum temperature at the study site. We were interested in this because UCP1 responds to cooler temperatures. 
 
 ```{r}
 #We already have the VCF file we need loaded and made in to the file types we need, all we need to do is change the population data category. 
@@ -230,9 +234,10 @@ scatter(dapc2, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scre
 
 #DAPC illustrates the same clustering pattern as PCA. 
 ```
+We decided not to include this part of the analysis in our final presentation. It creates too many grouping categories and some of the group only have 1 or 2 samples, which is not enough for comparison. Besides it pretty clear it is not a significant component because it didn’t change the pca after we added the temperature data.
+<br>
 
-
-### PCA and DAPC using just the <i>pygerythrus</i> species UCP1 with only SNPs out of HWE, clustering by region.
+### PCA and DAPC using just the <i>Chlorocebus pygerythrus</i> species UCP1 with only SNPs out of HWE, clustering by region.
 <br>
 
 For our final analysis, we wanted to compare the population structure of SNPs that were out of HWE with the population structure of all SNPs in UCP1, which we do by clustering by region. We trimmed our SNP file 
@@ -297,3 +302,10 @@ scatter(dapc2, cex = 2, legend = TRUE, clabel = F, posi.leg = "bottomleft", scre
 ```
 
 ## Conclusions
+<br>
+
+While both methods of analysis that we used un this project are similar, there are some important differences to note. Both PCA and DAPC reduce datasets in to a couple of principal components that describe the dataset, but PCA only is concerned with the overall differences in the dataset while DAPC focuses specifically on the differences between groups. DAPC method can outperform PCA in achieving a clear variance difference between populations. DAPC methods can be applied in quality control and stratification population correction as an alternative to the PCA because of summarizing the genetic differentiation between groups and overlooking within-group variation and providing better population structure. 
+<br>
+
+We see significant out groups of sabaeus and aethiops, but doesn’t tell us much about why they are different. We did not have climate data for all of the taxa, which is why we only focused on climate variables in <i>Chlorocebus pygerythrus</i>. We hope to focus more on climate variables in all species in our final project. In our analysis of <i>Chlorocebus pygerythrus</i>, we included some minimum temperature data for each of the samples sites. Although we did not find significant differences between our sites, it does appear that the individuals from the Free State sites are differentiated from the others. This warrants further investigation because temperatures in the Free State are historically lower than both the Eartern Cape and KwaZulu-Natal. There are too few samples in the Bostwana and Limpopo site to make any determination about these populations. Our final analysis of SNPs out of HWE is similar to our analysis of <i>Chlorocebus pygerythrus</i> by region, but with stronger variance shown between regions in DAPC. THe shape of DAPC is more consistent than PCA with the “by region” plots that look at all of UCP1. 
+
